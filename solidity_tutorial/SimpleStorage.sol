@@ -28,7 +28,7 @@ contract SimpleStorage {
     // public, internal, external, private
     // public defines that the values stored in a variable can be assessed even outside the blockchain
     //uint256 favouriteNumber; // initialises null to variable
-    uint256 public favouriteNumber;
+    uint256 favouriteNumber;
     
     // now we create functions to add power to our contract
     
@@ -40,7 +40,8 @@ contract SimpleStorage {
     // now create a function to retrieve value of variable
     // retrieve function is a view only function which will return a variable of type uint
     
-    // view means we want to just view the state of the blockchain and pure means we want to 
+    // view means we want to just view the state of the blockchain
+    // pure functions do not read or modify the state of blockchain
     function retrieve() public view returns(uint){
         return favouriteNumber;
     }
