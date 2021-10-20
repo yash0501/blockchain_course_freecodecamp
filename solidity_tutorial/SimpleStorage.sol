@@ -30,6 +30,33 @@ contract SimpleStorage {
     //uint256 favouriteNumber; // initialises null to variable
     uint256 favouriteNumber;
     
+    
+    
+    // now we want to assosiate a favourite number to a person or similar thing
+    // to do so we use struct to define a new data structure
+    // in storage all the state variables are declared with a 
+    struct People{
+        uint256 favouriteNumber;
+        string name;
+    }
+    
+    People public person = People({
+        favouriteNumber: 54,
+        name: "Lekh"
+    });
+    
+    // array are declared in the similar way like we declare in any other programming language
+    People[] public people;
+    
+    // now we will create a function to add to our array dynamically
+    // use array.push() to append to the array
+    // to use a string as parameter, add memory after string because string is an object
+    
+    function addPerson(string memory _name, uint256 _favouriteNumber) public {
+        people.push(People({favouriteNumber: _favouriteNumber, name: _name}));
+    }
+    
+    
     // now we create functions to add power to our contract
     
     // creating a public funtion to change the value of stored integer
@@ -45,5 +72,4 @@ contract SimpleStorage {
     function retrieve() public view returns(uint){
         return favouriteNumber;
     }
-    
 }
