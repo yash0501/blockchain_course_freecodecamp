@@ -37,5 +37,12 @@ contract SimpleStorage {
         favouriteNumber = _favouriteNumber;
     }
     
+    // now create a function to retrieve value of variable
+    // retrieve function is a view only function which will return a variable of type uint
+    
+    // view means we want to just view the state of the blockchain and pure means we want to 
+    function retrieve() public view returns(uint){
+        return favouriteNumber;
+    }
     
 }
