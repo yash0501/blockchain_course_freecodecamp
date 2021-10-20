@@ -48,12 +48,22 @@ contract SimpleStorage {
     // array are declared in the similar way like we declare in any other programming language
     People[] public people;
     
+    
+    // now we want to retrieve the favouriteNumber of a specific person
+    // for this we will use mapping
+    // we create a new data structure like dictionary in python
+    // this function will map my name to the favouriteNumber and if we search for a name, it will return that number from the mapping
+    mapping(string => uint256) public nameToFavouriteNumber;
+    
+    
     // now we will create a function to add to our array dynamically
     // use array.push() to append to the array
     // to use a string as parameter, add memory after string because string is an object
     
     function addPerson(string memory _name, uint256 _favouriteNumber) public {
         people.push(People({favouriteNumber: _favouriteNumber, name: _name}));
+        // now we call the mapping to store the name and its corresponding favourite number
+        nameToFavouriteNumber[_name] = _favouriteNumber;
     }
     
     
